@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Syne', sans-serif;
+    overflow-x: hidden;
+    background-color: #0f1a05;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 24px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(40px) saturate(200%) brightness(130%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(130%);
+    border-radius: 50px;
+    width: fit-content;
+    padding: 0.65em 2em;
+    display: flex;
+    align-items: center;
+    gap: 3em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    z-index: 100;
+}
+
+.thinkeraIcon {
+    width: 34px;
+    border-radius: 50%;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    gap: 2.5em;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #c8ff8a;
+}
+
+/* ── HERO ── */
+.hero {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.2em;
+    text-align: center;
+    padding: 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url(pics/background-image.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(6px) brightness(0.6);
+    transform: scale(1.08);
+    z-index: 0;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.65) 100%);
+    z-index: 0;
+}
+
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero .thinkeraIcon {
+    width: 60%;
+    max-width: 480px;
+    border-radius: 0;
+    animation: leftRight 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.hero p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
+    max-width: 440px;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 0.8em;
+    margin-top: 0.8em;
+}
+
+.aboutBut {
+    padding: 0.85em 2.2em;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    letter-spacing: 0.05em;
+}
+
+.aboutBut:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.contactBut {
+    padding: 0.85em 2.2em;
+    color: #3d6612;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 50px;
+    background-color: #c8ff8a;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.05em;
+}
+
+.contactBut:hover {
+    background-color: #d8ffaa;
+    transform: scale(1.04);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes leftRight {
+    0% { opacity: 0; transform: translateX(-60px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes downUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero .buttonCont {
+    animation: downUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+/* ── ABOUT ── */
+.about {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0f1a05;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 8rem 6rem;
+    gap: 6rem;
+}
+
+.about .logo5 {
+    width: 18%;
+    opacity: 0.92;
+    border-radius: 10px;
+    animation: UpAndDown 3s infinite ease-in-out;
+}
+
+@keyframes UpAndDown {
+    0%   { transform: translateY(-5%); }
+    50%  { transform: translateY(5%); }
+    100% { transform: translateY(-5%); }
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 560px;
+}
+
+.about h1 {
+    color: #ffffff;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 0;
+    animation: leftRight 2s;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+
+.about h1 span {
+    color: #c8ff8a;
+}
+
+.aboutTxt {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+    font-weight: 400;
+    line-height: 1.9;
+    margin: 0;
+    animation: leftRight 2s;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+
+.about-divider {
+    width: 48px;
+    height: 2px;
+    background-color: #c8ff8a;
+    border-radius: 2px;
+}
+
+.about-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 0.5rem;
+    animation: downUp 2s;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+
+.about-stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.about-stats span:first-child {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #c8ff8a;
+    letter-spacing: -0.02em;
+    animation: downUp 2s;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+
+.about-stats span:last-child {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    animation: downUp 2s;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
